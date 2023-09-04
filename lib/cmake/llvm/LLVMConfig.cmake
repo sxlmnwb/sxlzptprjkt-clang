@@ -9,11 +9,11 @@ get_filename_component(LLVM_INSTALL_PREFIX "${LLVM_INSTALL_PREFIX}" PATH)
 # For finding self-installed Find*.cmake packages.
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
 
-set(LLVM_VERSION_MAJOR 14)
+set(LLVM_VERSION_MAJOR 16)
 set(LLVM_VERSION_MINOR 0)
 set(LLVM_VERSION_PATCH 6)
 set(LLVM_VERSION_SUFFIX )
-set(LLVM_PACKAGE_VERSION 14.0.6)
+set(LLVM_PACKAGE_VERSION 16.0.6)
 set(LLVM_PACKAGE_BUGREPORT https://github.com/llvm/llvm-project/issues/)
 
 set(LLVM_BUILD_TYPE Release)
@@ -27,13 +27,13 @@ set(LLVM_USE_SPLIT_DWARF OFF)
 
 set(LLVM_COMMON_DEPENDS )
 
-set(LLVM_AVAILABLE_LIBS LLVMDemangle;LLVMSupport;LLVMTableGen;LLVMTableGenGlobalISel;LLVMCore;LLVMFuzzMutate;LLVMFileCheck;LLVMInterfaceStub;LLVMIRReader;LLVMCodeGen;LLVMSelectionDAG;LLVMAsmPrinter;LLVMMIRParser;LLVMGlobalISel;LLVMBinaryFormat;LLVMBitReader;LLVMBitWriter;LLVMBitstreamReader;LLVMDWARFLinker;LLVMExtensions;LLVMFrontendOpenACC;LLVMFrontendOpenMP;LLVMTransformUtils;LLVMInstrumentation;LLVMAggressiveInstCombine;LLVMInstCombine;LLVMScalarOpts;LLVMipo;LLVMVectorize;LLVMObjCARCOpts;LLVMCoroutines;LLVMCFGuard;LLVMLinker;LLVMAnalysis;LLVMLTO;LLVMMC;LLVMMCParser;LLVMMCDisassembler;LLVMMCA;LLVMObject;LLVMObjectYAML;LLVMOption;LLVMRemarks;LLVMDebuginfod;LLVMDebugInfoDWARF;LLVMDebugInfoGSYM;LLVMDebugInfoMSF;LLVMDebugInfoCodeView;LLVMDebugInfoPDB;LLVMSymbolize;LLVMDWP;LLVMExecutionEngine;LLVMInterpreter;LLVMJITLink;LLVMMCJIT;LLVMOrcJIT;LLVMOrcShared;LLVMOrcTargetProcess;LLVMRuntimeDyld;LLVMTarget;LLVMX86CodeGen;LLVMX86AsmParser;LLVMX86Disassembler;LLVMX86TargetMCA;LLVMX86Desc;LLVMX86Info;LLVMAsmParser;LLVMLineEditor;LLVMProfileData;LLVMCoverage;LLVMPasses;LLVMTextAPI;LLVMDlltoolDriver;LLVMLibDriver;LLVMXRay;LLVMWindowsManifest;LTO;LLVMCFIVerify;LLVMDiff;LLVMExegesisX86;LLVMExegesis;Remarks)
+set(LLVM_AVAILABLE_LIBS LLVMDemangle;LLVMSupport;LLVMTableGen;LLVMTableGenGlobalISel;LLVMCore;LLVMFuzzerCLI;LLVMFuzzMutate;LLVMFileCheck;LLVMInterfaceStub;LLVMIRPrinter;LLVMIRReader;LLVMCodeGen;LLVMSelectionDAG;LLVMAsmPrinter;LLVMMIRParser;LLVMGlobalISel;LLVMBinaryFormat;LLVMBitReader;LLVMBitWriter;LLVMBitstreamReader;LLVMDWARFLinker;LLVMDWARFLinkerParallel;LLVMExtensions;LLVMFrontendHLSL;LLVMFrontendOpenACC;LLVMFrontendOpenMP;LLVMTransformUtils;LLVMInstrumentation;LLVMAggressiveInstCombine;LLVMInstCombine;LLVMScalarOpts;LLVMipo;LLVMVectorize;LLVMObjCARCOpts;LLVMCoroutines;LLVMCFGuard;LLVMLinker;LLVMAnalysis;LLVMLTO;LLVMMC;LLVMMCParser;LLVMMCDisassembler;LLVMMCA;LLVMObjCopy;LLVMObject;LLVMObjectYAML;LLVMOption;LLVMRemarks;LLVMDebuginfod;LLVMDebugInfoDWARF;LLVMDebugInfoGSYM;LLVMDebugInfoLogicalView;LLVMDebugInfoMSF;LLVMDebugInfoCodeView;LLVMDebugInfoPDB;LLVMSymbolize;LLVMDWP;LLVMExecutionEngine;LLVMInterpreter;LLVMJITLink;LLVMMCJIT;LLVMOrcJIT;LLVMOrcShared;LLVMOrcTargetProcess;LLVMRuntimeDyld;LLVMTarget;LLVMX86CodeGen;LLVMX86AsmParser;LLVMX86Disassembler;LLVMX86TargetMCA;LLVMX86Desc;LLVMX86Info;LLVMAsmParser;LLVMLineEditor;LLVMProfileData;LLVMCoverage;LLVMPasses;LLVMTargetParser;LLVMTextAPI;LLVMDlltoolDriver;LLVMLibDriver;LLVMXRay;LLVMWindowsDriver;LLVMWindowsManifest;LTO;LLVMCFIVerify;LLVMDiff;LLVMExegesisX86;LLVMExegesis;Remarks)
 
 
 
 set(LLVM_DYLIB_COMPONENTS all)
 
-set(LLVM_ALL_TARGETS AArch64;AMDGPU;ARM;AVR;BPF;Hexagon;Lanai;Mips;MSP430;NVPTX;PowerPC;RISCV;Sparc;SystemZ;VE;WebAssembly;X86;XCore)
+set(LLVM_ALL_TARGETS AArch64;AMDGPU;ARM;AVR;BPF;Hexagon;Lanai;LoongArch;Mips;MSP430;NVPTX;PowerPC;RISCV;Sparc;SystemZ;VE;WebAssembly;X86;XCore)
 
 set(LLVM_TARGETS_TO_BUILD X86)
 
@@ -45,9 +45,11 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMSupport )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTableGen )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTableGenGlobalISel )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMCore )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFuzzerCLI )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFuzzMutate )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFileCheck )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMInterfaceStub )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMIRPrinter )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMIRReader )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMCodeGen )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMSelectionDAG )
@@ -59,7 +61,9 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMBitReader )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMBitWriter )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMBitstreamReader )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDWARFLinker )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDWARFLinkerParallel )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMExtensions )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFrontendHLSL )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFrontendOpenACC )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMFrontendOpenMP )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTransformUtils )
@@ -79,6 +83,7 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMC )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMCParser )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMCDisassembler )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMMCA )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMObjCopy )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMObject )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMObjectYAML )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMOption )
@@ -86,6 +91,7 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMRemarks )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebuginfod )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoDWARF )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoGSYM )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoLogicalView )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoMSF )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoCodeView )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDebugInfoPDB )
@@ -111,10 +117,12 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMLineEditor )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMProfileData )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMCoverage )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMPasses )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTargetParser )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMTextAPI )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMDlltoolDriver )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMLibDriver )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMXRay )
+set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMWindowsDriver )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMWindowsManifest )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LTO )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMCFIVerify )
@@ -123,7 +131,7 @@ set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMExegesisX86 )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_LLVMExegesis )
 set_property(GLOBAL PROPERTY LLVMBUILD_LIB_DEPS_Remarks )
 
-set(TARGET_TRIPLE "x86_64-pc-linux-gnu")
+set(LLVM_TARGET_TRIPLE "x86_64-pc-linux-gnu")
 
 set(LLVM_HOST_TRIPLE "x86_64-unknown-linux-gnu")
 
@@ -159,9 +167,19 @@ if(LLVM_ENABLE_ZLIB)
   find_package(ZLIB)
 endif()
 
+set(LLVM_ENABLE_ZSTD FALSE)
+if(LLVM_ENABLE_ZSTD)
+  find_package(zstd)
+endif()
+
 set(LLVM_ENABLE_LIBXML2 )
 if(LLVM_ENABLE_LIBXML2)
   find_package(LibXml2)
+endif()
+
+set(LLVM_ENABLE_CURL OFF)
+if(LLVM_ENABLE_CURL)
+  find_package(CURL)
 endif()
 
 set(LLVM_WITH_Z3 )
@@ -173,8 +191,6 @@ set(LLVM_NATIVE_ARCH X86)
 set(LLVM_ENABLE_PIC ON)
 
 set(LLVM_BUILD_32_BITS OFF)
-
-set(LLVM_ENABLE_NEW_PASS_MANAGER TRUE)
 
 if (NOT "-lpthread" STREQUAL "")
   set(LLVM_PTHREAD_LIB "-lpthread")
@@ -209,12 +225,11 @@ set(LLVM_DEFINITIONS "-D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MAC
 set(LLVM_BINARY_DIR "${LLVM_INSTALL_PREFIX}")
 set(LLVM_CMAKE_DIR "${LLVM_INSTALL_PREFIX}/lib/cmake/llvm")
 set(LLVM_TOOLS_BINARY_DIR "${LLVM_INSTALL_PREFIX}/bin")
-set(LLVM_TOOLS_INSTALL_DIR "bin")
 set(LLVM_HAVE_OPT_VIEWER_MODULES 0)
 set(LLVM_CONFIGURATION_TYPES )
 set(LLVM_ENABLE_SHARED_LIBS OFF)
 
-set(LLVM_DEFAULT_EXTERNAL_LIT "/drone/src/toolchain/build/llvm/stage2/./bin/llvm-lit")
+set(LLVM_DEFAULT_EXTERNAL_LIT "/home/sxlmnwb/sxlzptprjkt-toolchain-build/build/llvm/stage2/./bin/llvm-lit")
 set(LLVM_LIT_ARGS "-sv")
 
 set(LLVM_HAVE_LIBXAR "")
@@ -224,9 +239,9 @@ if(NOT TARGET LLVMSupport)
   
 endif()
 
-# By creating intrinsics_gen, omp_gen and acc_gen here, subprojects that depend
-# on LLVM's tablegen-generated headers can always depend on this target whether
-# building in-tree with LLVM or not.
+# By creating the following targets here, subprojects that depend on
+# LLVM's tablegen-generated headers can always depend on this target
+# whether building in-tree with LLVM or not.
 if(NOT TARGET intrinsics_gen)
   add_custom_target(intrinsics_gen)
 endif()
@@ -235,6 +250,9 @@ if(NOT TARGET omp_gen)
 endif()
 if(NOT TARGET acc_gen)
   add_custom_target(acc_gen)
+endif()
+if(NOT TARGET RISCVTargetParserTableGen)
+  add_custom_target(RISCVTargetParserTableGen)
 endif()
 
 set_property(GLOBAL PROPERTY LLVM_TARGETS_CONFIGURED On)
